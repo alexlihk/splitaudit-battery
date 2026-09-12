@@ -1,0 +1,20 @@
+{
+  "prereg": {
+    "prediction": "t1_seq in [0.50, 0.68]",
+    "artifact_if": "t1_seq >= 0.45",
+    "protected_if": "t1_seq <= 0.40",
+    "selfcheck": "base acc=0.8990; K512 cell acc~0.875, t1_cf~0.359"
+  },
+  "done": true,
+  "base_acc": null,
+  "results": {
+    "acc": 0.875,
+    "t1_cf": 0.3586657432192127,
+    "t5_cf": 0.5126443666585553,
+    "t1_seq": 0.42144769106938956,
+    "t5_seq": 0.5790389906968908,
+    "ce_seq": 3.806565115783536,
+    "verdict": "GRAY ZONE",
+    "context_gain": 0.06278194785017688
+  }
+}

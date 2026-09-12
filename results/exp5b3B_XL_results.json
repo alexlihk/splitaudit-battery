@@ -1,0 +1,20 @@
+{
+  "prereg": {
+    "prediction": "t1_seq in [0.50, 0.68]",
+    "artifact_if": "t1_seq >= 0.45",
+    "protected_if": "t1_seq <= 0.40",
+    "selfcheck": "base acc=0.8990; K512 cell acc~0.875, t1_cf~0.359"
+  },
+  "done": true,
+  "base_acc": null,
+  "results": {
+    "acc": 0.8709999918937683,
+    "t1_cf": 0.3584224023360725,
+    "t5_cf": 0.5131872040132527,
+    "t1_seq": 0.474570877711847,
+    "t5_seq": 0.614510604046946,
+    "ce_seq": 4.308073853802869,
+    "verdict": "ARTIFACT (decoder limitation, not privacy)",
+    "context_gain": 0.1161484753757745
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "prereg": {
+    "a_honest": "[0.85,0.93]",
+    "b_9bit": "[0.55,0.75]",
+    "c_raw": "[0.6,0.8]",
+    "baseline_random": 0.25
+  },
+  "cells": {
+    "honest": {
+      "r2_acc": 0.871,
+      "task_acc": 0.27399998903274536
+    },
+    "quant9": {
+      "r2_acc": 0.859
+    },
+    "raw": {
+      "r2_acc": 0.873
+    }
+  },
+  "summary": "R2 \u6a19\u7c64\u6d29\u6f0f: honest=0.871 (task=0.274) | 9-bit=0.859 | raw=0.873 | random=0.25",
+  "done": true
+}

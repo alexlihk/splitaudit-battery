@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this battery, cite the audit paper."
+title: "SplitAudit Battery: calibrated probes for representation-leakage audit"
+authors:
+  - family-names: Li
+    given-names: Tak Ho Alex
+  - family-names: Liu
+    given-names: Kaijie
+  - family-names: Ng
+    given-names: Michael K.
+type: software
+license: BSD-3-Clause
+repository-code: "REPLACE-WITH-FINAL-URL"
