@@ -3,7 +3,7 @@
 Calibrated probe battery for auditing representation leakage in
 split-learning / split-inference deployments. Companion artifact to:
 "Split-Learning and Split-Inference Privacy Defenses Fail Under Strong
-Attackers: A Metric-Agnostic Dual-Track Empirical Audit" (arXiv 2025)
+Attackers: A Metric-Agnostic Dual-Track Empirical Audit" (arXiv 2026 submit/8072557 )
 and patent application CN 202611402684.7.
 
 ## Calibration anchors (verify your fork)
