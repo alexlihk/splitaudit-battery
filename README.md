@@ -1,21 +1,30 @@
+# splitaudit-battery — README v2（補丁版，整檔替換 repo 現有 README.md）
+
 # SplitAudit Battery (L1: calibration & probes)
 
 Calibrated probe battery for auditing representation leakage in
 split-learning / split-inference deployments. Companion artifact to:
 "Split-Learning and Split-Inference Privacy Defenses Fail Under Strong
-Attackers: A Metric-Agnostic Dual-Track Empirical Audit" (arXiv 2026 submit/8072557 )
+Attackers: A Metric-Agnostic Dual-Track Empirical Audit of
+Representation Leakage" (preprint DOI: 10.13140/RG.2.2.32481.67681)
 and patent application CN 202611402684.7.
 
 ## Calibration anchors (verify your fork)
 
+Anchors are model x corpus x family dependent. Reference points
+(GPT-2 / AG News unless noted):
+
 | Anchor | Value | Meaning |
 |---|---|---|
-| Full information | 0.97 top-1 | unmodified CLS s6 representations |
-| Ambient baseline | 0.317 | pretrained GPT-2, no access to z (P_ctx) |
+| Full information | 0.97 top-1 (124M); 0.957 (355M); 0.907 (774M, 5-config mean, exp18b); 0.934 (Llama-3.2-1B, exp19) | unmodified CLS s6 representations |
+| Ambient baseline | 0.317 (124M); 0.356 (355M); 0.374 (774M); 0.329 (DBpedia); 0.415 (Llama) | pretrained LM prior, no access to z (P_ctx) |
 | Zero information | 0.030 | collapsed codebook (unigram mode floor) |
 | Two-probe closure | 0.469 ~= 0.475 | reassembler vs SeqDecoder on 9-bit |
 
-Any fork whose numbers do not reproduce these anchors is not calibrated.
+Any fork whose numbers do not reproduce these anchors is not
+calibrated. Note (exp18b): probe training carries ~7pp run-to-run
+variance — multi-seed averaging is mandatory; single-seed readouts
+with a large t5-t1 gap are low draws, not capacity limits.
 
 ## Quick start
 
@@ -29,20 +38,23 @@ Any fork whose numbers do not reproduce these anchors is not calibrated.
     probes/       Tier 0-3 probes (floor / CE / reassembler)
     vq/           repaired VQ cell (k-means init, EMA, revive)
     calibration/  anchor fixture
-    results/      12 experiment JSONs (fixed seeds)
+    results/      19 experiment JSONs (fixed seeds; exp1b - exp19)
     figs/         figure scripts (hardcoded measured values)
 
 ## Provenance
 
-Cross-session reproduction: LM s6 0.9788 vs 0.9820; floors match to all
-printed digits (0.0055 / 0.0029). The CE probe is the primary instrument
-in 10 of 14 experiments. Per-file headers carry the experiment ledger.
+Cross-session reproduction: LM s6 0.9788 vs 0.9820; floors match to
+all printed digits (0.0055 / 0.0029). exp18b control: same 774M
+representations x 5 probe configs -> t1 0.888-0.914 (mean 0.907).
+exp19: Llama-3.2-1B cross-family confirmation (t1 0.9341, t5 0.9805,
+P_ctx 0.4148). Per-file headers carry the experiment ledger.
 
 ## License
 
-BSD-3-Clause (language layer). Engine layer (certification, subscription,
-threshold library) is not part of this repository.
+BSD-3-Clause (language layer). Engine layer (certification,
+subscription, threshold library) is not part of this repository.
 
 ## Citation
 
-See CITATION.cff. Repository: REPLACE-WITH-FINAL-URL
+See CITATION.cff. Repository: https://github.com/alexlihk/splitaudit-battery
+Product: https://github.com/alexlihk/splitrisk (SplitRisk, L1 CLI package)
