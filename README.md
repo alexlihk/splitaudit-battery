@@ -38,7 +38,7 @@ with a large t5-t1 gap are low draws, not capacity limits.
     probes/       Tier 0-3 probes (floor / CE / reassembler)
     vq/           repaired VQ cell (k-means init, EMA, revive)
     calibration/  anchor fixture
-    results/      19 experiment JSONs (fixed seeds; exp1b - exp19)
+    results/      18 paper-backed JSONs (exp1b-19) + 7 H20 extension JSONs (fixed seeds; exp1b - exp19)
     figs/         figure scripts (hardcoded measured values)
 
 ## Provenance
