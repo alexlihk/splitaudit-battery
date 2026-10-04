@@ -1,0 +1,78 @@
+{
+  "prereg": {
+    "model": "gpt2-large",
+    "split": 18,
+    "purpose": "control experiment for exp18 t1=0.845",
+    "hypothesis": "larger probe \u2192 t1 recovers to 0.9+",
+    "probe_configs": [
+      {
+        "hidden": 2048,
+        "epochs": 2,
+        "label": "baseline_2k_2ep"
+      },
+      {
+        "hidden": 4096,
+        "epochs": 4,
+        "label": "big_4k_4ep"
+      },
+      {
+        "hidden": 8192,
+        "epochs": 8,
+        "label": "huge_8k_8ep"
+      },
+      {
+        "hidden": 4096,
+        "epochs": 2,
+        "label": "big_4k_2ep"
+      },
+      {
+        "hidden": 2048,
+        "epochs": 8,
+        "label": "baseline_2k_8ep"
+      }
+    ]
+  },
+  "cells": {
+    "probe_h2048_e2": {
+      "hidden": 2048,
+      "epochs": 2,
+      "t1": 0.9136654959620613,
+      "t5": 0.9718435621167927,
+      "t5_minus_t1": 0.05817806615473142,
+      "verdict": "ok"
+    },
+    "probe_h4096_e4": {
+      "hidden": 4096,
+      "epochs": 4,
+      "t1": 0.908585828521539,
+      "t5": 0.9736889100541699,
+      "t5_minus_t1": 0.06510308153263089,
+      "verdict": "ok"
+    },
+    "probe_h8192_e8": {
+      "hidden": 8192,
+      "epochs": 8,
+      "t1": 0.8878901521915987,
+      "t5": 0.9661289362462051,
+      "t5_minus_t1": 0.07823878405460638,
+      "verdict": "ok"
+    },
+    "probe_h4096_e2": {
+      "hidden": 4096,
+      "epochs": 2,
+      "t1": 0.9112447169474374,
+      "t5": 0.9688275095739826,
+      "t5_minus_t1": 0.0575827926265452,
+      "verdict": "ok"
+    },
+    "probe_h2048_e8": {
+      "hidden": 2048,
+      "epochs": 8,
+      "t1": 0.9134273865507867,
+      "t5": 0.9764271682838264,
+      "t5_minus_t1": 0.06299978173303966,
+      "verdict": "ok"
+    }
+  },
+  "done": true
+}

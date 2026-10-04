@@ -1,0 +1,37 @@
+{
+  "prereg": {
+    "data": "planted-PHI synthetic notes (mechanism-level)",
+    "base_t1": "[0.85,0.97]",
+    "phi_ratio_raw": "[0.7,1.2]",
+    "rare_ratio_raw": "[0.9,1.5] (\u6307\u7d0b\u5047\u8aaa: >1)",
+    "phi_ratio_9bit": "[0.6,1.6] \u65b9\u5411\u672a\u77e5",
+    "rare_ratio_9bit": "[0.5,1.8] \u65b9\u5411\u672a\u77e5",
+    "note": "\u5408\u6210\u81ea\u6a19\u6ce8; \u6a5f\u5236\u7d50\u8ad6\u53ef\u5916\u63a8, \u91ab\u9662\u7d71\u8a08\u4e0d\u53ef"
+  },
+  "cells": {
+    "cls_base": {
+      "acc": 1.0,
+      "t1_all": 0.9993235460811379,
+      "t1_phi": 0.9977448649966477,
+      "t1_rare": 1.0,
+      "phi_ratio": 0.998420250287626,
+      "rare_ratio": 1.0006769118185144,
+      "n_phi": 16407,
+      "n_rare": 5054,
+      "floor": 0.0010238221474669544,
+      "pctx": 0.2851364639961408
+    },
+    "vq9": {
+      "acc": 1.0,
+      "acc_r": 1.0,
+      "t1_all": 0.7892388979285884,
+      "t1_phi": 0.4935698177607119,
+      "t1_rare": 0.4669568658488326,
+      "phi_ratio": 0.6253744196543274,
+      "rare_ratio": 0.5916546524435035,
+      "n_phi": 16407,
+      "n_rare": 5054
+    }
+  },
+  "done": true
+}
