@@ -1,0 +1,72 @@
+{
+  "model": "/data/xuguangning/work/splitrisk/models/Llama-3.1-8B/",
+  "split": 6,
+  "pctx": 0.4662613257033858,
+  "dim": 4096,
+  "candidates": {
+    "baseline": {
+      "t1_mean": 0.2747,
+      "t1_std": 0.0,
+      "t5_mean": 0.4821,
+      "floor": 0.0007,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.2747,
+        0.2747,
+        0.2747
+      ]
+    },
+    "per_dim_norm": {
+      "t1_mean": 0.5097,
+      "t1_std": 0.0,
+      "t5_mean": 0.6873,
+      "floor": 0.0032,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.5097,
+        0.5097,
+        0.5097
+      ]
+    },
+    "clip_z": {
+      "t1_mean": 0.5182,
+      "t1_std": 0.0,
+      "t5_mean": 0.6865,
+      "floor": 0.0032,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.5182,
+        0.5182,
+        0.5182
+      ]
+    },
+    "exclude_pos0": {
+      "t1_mean": 0.2187,
+      "t1_std": 0.0,
+      "t5_mean": 0.4196,
+      "floor": 0.0008,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.2187,
+        0.2187,
+        0.2187
+      ]
+    },
+    "norm_plus_excl": {
+      "t1_mean": 0.4363,
+      "t1_std": 0.0,
+      "t5_mean": 0.6287,
+      "floor": 0.0033,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.4363,
+        0.4363,
+        0.4363
+      ]
+    }
+  },
+  "n_pass": 0,
+  "verdict": "0/5 — 儀器邊界確認，此尺度維持 REVIEW",
+  "done": true,
+  "minutes": 7.8
+}

@@ -1,0 +1,72 @@
+{
+  "model": "mistralai/Mistral-7B-v0.1",
+  "split": 6,
+  "pctx": 0.522367515485203,
+  "dim": 4096,
+  "candidates": {
+    "baseline": {
+      "t1_mean": 0.2026,
+      "t1_std": 0.0,
+      "t5_mean": 0.3409,
+      "floor": 0.0584,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.2026,
+        0.2026,
+        0.2026
+      ]
+    },
+    "per_dim_norm": {
+      "t1_mean": 0.6562,
+      "t1_std": 0.0,
+      "t5_mean": 0.7888,
+      "floor": 0.0863,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.6562,
+        0.6562,
+        0.6562
+      ]
+    },
+    "clip_z": {
+      "t1_mean": 0.6404,
+      "t1_std": 0.0,
+      "t5_mean": 0.7775,
+      "floor": 0.0863,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.6404,
+        0.6404,
+        0.6404
+      ]
+    },
+    "exclude_pos0": {
+      "t1_mean": 0.2024,
+      "t1_std": 0.0,
+      "t5_mean": 0.3336,
+      "floor": 0.0595,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.2024,
+        0.2024,
+        0.2024
+      ]
+    },
+    "norm_plus_excl": {
+      "t1_mean": 0.6224,
+      "t1_std": 0.0,
+      "t5_mean": 0.7577,
+      "floor": 0.0879,
+      "anchor_separated": false,
+      "per_seed_t1": [
+        0.6224,
+        0.6224,
+        0.6224
+      ]
+    }
+  },
+  "n_pass": 0,
+  "verdict": "0/5 — 儀器邊界確認，此尺度維持 REVIEW",
+  "done": true,
+  "minutes": 3.6
+}
