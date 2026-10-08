@@ -1,0 +1,169 @@
+{
+  "model": "google/gemma-2-2b",
+  "split": 6,
+  "pctx": 0.45273748245203554,
+  "dim": 2304,
+  "protocol": {
+    "margin": 0.15,
+    "seeds": [
+      1006,
+      1007,
+      1008
+    ],
+    "stageA": "2ep/2000",
+    "ladder": {
+      "L2": "6ep/5000",
+      "L3": "12ep/5000"
+    },
+    "ladder_candidates": [
+      "per_dim_norm",
+      "clip_z"
+    ]
+  },
+  "stageA": {
+    "baseline": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8436,
+      "t1_std": 0.0275,
+      "t5_mean": 0.9387,
+      "floor": 0.3782,
+      "gap_vs_pctx": 0.3909,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.87,
+        0.8551,
+        0.8057
+      ]
+    },
+    "per_dim_norm": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8209,
+      "t1_std": 0.0175,
+      "t5_mean": 0.9154,
+      "floor": 0.8622,
+      "gap_vs_pctx": 0.3682,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8404,
+        0.798,
+        0.8243
+      ]
+    },
+    "clip_z": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8256,
+      "t1_std": 0.0115,
+      "t5_mean": 0.9195,
+      "floor": 0.8621,
+      "gap_vs_pctx": 0.3728,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8408,
+        0.8132,
+        0.8227
+      ]
+    },
+    "exclude_pos0": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8532,
+      "t1_std": 0.0162,
+      "t5_mean": 0.948,
+      "floor": 0.3753,
+      "gap_vs_pctx": 0.4005,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8757,
+        0.8458,
+        0.8381
+      ]
+    },
+    "norm_plus_excl": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8106,
+      "t1_std": 0.0061,
+      "t5_mean": 0.9159,
+      "floor": 0.8615,
+      "gap_vs_pctx": 0.3579,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8054,
+        0.8072,
+        0.8192
+      ]
+    }
+  },
+  "ladder": {
+    "per_dim_norm": {
+      "L2": {
+        "epochs": 6,
+        "n_train": 5000,
+        "t1_mean": 0.9639,
+        "t1_std": 0.0086,
+        "t5_mean": 0.9917,
+        "floor": 0.8593,
+        "gap_vs_pctx": 0.5111,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.952,
+          0.9721,
+          0.9676
+        ]
+      },
+      "L3": {
+        "epochs": 12,
+        "n_train": 5000,
+        "t1_mean": 0.9348,
+        "t1_std": 0.04,
+        "t5_mean": 0.9827,
+        "floor": 0.8593,
+        "gap_vs_pctx": 0.482,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.8806,
+          0.9479,
+          0.9758
+        ]
+      }
+    },
+    "clip_z": {
+      "L2": {
+        "epochs": 6,
+        "n_train": 5000,
+        "t1_mean": 0.9735,
+        "t1_std": 0.0026,
+        "t5_mean": 0.9927,
+        "floor": 0.8593,
+        "gap_vs_pctx": 0.5208,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.9761,
+          0.9699,
+          0.9745
+        ]
+      },
+      "L3": {
+        "epochs": 12,
+        "n_train": 5000,
+        "t1_mean": 0.9624,
+        "t1_std": 0.0139,
+        "t5_mean": 0.9847,
+        "floor": 0.8593,
+        "gap_vs_pctx": 0.5097,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.943,
+          0.9691,
+          0.9751
+        ]
+      }
+    }
+  },
+  "verdict": "Stage A 5/5 分離（註冊預算）→ PASS；ladder 首過＝('per_dim_norm', 'L2', 0.5111)",
+  "done": true,
+  "minutes": 64.2
+}

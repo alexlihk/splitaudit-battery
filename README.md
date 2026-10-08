@@ -16,7 +16,7 @@ Anchors are model x corpus x family dependent. Reference points
 
 | Anchor | Value | Meaning |
 |---|---|---|
-| Full information | 0.97 top-1 (124M); 0.957 (355M); 0.907 (774M, 5-config mean, exp18b); 0.934 (Llama-3.2-1B, exp19) | unmodified CLS s6 representations |
+| Full information | 0.97 top-1 (124M); 0.957 (355M); 0.907 (774M, 5-config mean, exp18b); 0.934 (Llama-3.2-1B, exp19); 0.87-0.92 (1.5B-8B at ladder budget, exp20b-23c) | unmodified CLS s6 representations |
 | Ambient baseline | 0.317 (124M); 0.356 (355M); 0.374 (774M); 0.329 (DBpedia); 0.415 (Llama-3.2-1B); 0.466 (Llama-3.1-8B, exp23b); 0.522 (Mistral-7B, exp21b) | pretrained LM prior, no access to z (P_ctx) |
 | Zero information | 0.030 | collapsed codebook (unigram mode floor) |
 | Two-probe closure | 0.469 ~= 0.475 | reassembler vs SeqDecoder on 9-bit |
@@ -38,7 +38,7 @@ with a large t5-t1 gap are low draws, not capacity limits.
     probes/       Tier 0-3 probes (floor / CE / reassembler)
     vq/           repaired VQ cell (k-means init, EMA, revive)
     calibration/  anchor fixture
-    results/      18 paper-backed JSONs (exp1b-19) + 9 H20 JSONs (exp19b, exp20-23, exp21b/exp23b 7B+ probe recalibration)
+    results/      18 paper-backed JSONs (exp1b-19) + 13 H20 JSONs (exp19b, exp20-23, exp21b/exp23b batch-1 recal, exp20b/21c/22b/23c batch-2 ladder)
     figs/         figure scripts (hardcoded measured values)
 
 ## Provenance
@@ -53,6 +53,20 @@ registered budget - 0/5 anchor separation (threshold t1 > P_ctx + 0.15; best gap
 Mistral +0.134, Llama-8B +0.052). 7B+ remains REVIEW (instrument boundary,
 fail-closed). Caveat: v1 script seed wiring made all seeds identical (t1_std=0.0)
 - treat these as single-seed reads; script fixed in splitrisk commit 3bc21376.
+exp20b/exp21c/exp22b/exp23c (2026-10-08, batch 2 - probe7b2): real 3 seeds
+(1006/1007/1008) + budget ladder (L2 6ep/5k, L3 12ep/5k) on 4 families
+(Qwen2-1.5B, Gemma-2-2b, Mistral-7B, Llama-3.1-8B). Headline: anchor
+separation achieved at ALL scales up to 8B. At registered budget (2ep/2k):
+Qwen 5/5, Gemma 5/5, Mistral 1/5 (per_dim_norm gap +0.159, real-seed mean -
+the batch-1 single-seed read was a low draw), Llama-8B 0/5 (best gap
++0.042). At ladder L2 all families separate: t1 0.866-0.974, gaps +0.37 to
++0.52 - the 7B+ instrument boundary was a probe-budget boundary, now
+crossed and documented; Llama-8B split-6 remains highly recoverable
+(t1 0.866-0.883, t5 ~0.96). Gemma-2 floor anomaly: after per-dim
+normalization the probe-less raw floor is 0.862 (normalization aligns
+Gemma z directly onto the embedding space) - report Gemma via the
+baseline probe (0.844, floor 0.378). Real multi-seed spreads:
+t1_std 0.002-0.027.
 Per-file headers carry the experiment ledger.
 
 ## License

@@ -1,0 +1,169 @@
+{
+  "model": "Qwen/Qwen2-1.5B",
+  "split": 6,
+  "pctx": 0.4435182980074621,
+  "dim": 1536,
+  "protocol": {
+    "margin": 0.15,
+    "seeds": [
+      1006,
+      1007,
+      1008
+    ],
+    "stageA": "2ep/2000",
+    "ladder": {
+      "L2": "6ep/5000",
+      "L3": "12ep/5000"
+    },
+    "ladder_candidates": [
+      "per_dim_norm",
+      "clip_z"
+    ]
+  },
+  "stageA": {
+    "baseline": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.839,
+      "t1_std": 0.0141,
+      "t5_mean": 0.9358,
+      "floor": 0.0038,
+      "gap_vs_pctx": 0.3955,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8449,
+        0.8195,
+        0.8525
+      ]
+    },
+    "per_dim_norm": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8488,
+      "t1_std": 0.0029,
+      "t5_mean": 0.9407,
+      "floor": 0.0189,
+      "gap_vs_pctx": 0.4053,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8458,
+        0.8527,
+        0.8479
+      ]
+    },
+    "clip_z": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8485,
+      "t1_std": 0.0035,
+      "t5_mean": 0.9396,
+      "floor": 0.0189,
+      "gap_vs_pctx": 0.4049,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8448,
+        0.8532,
+        0.8473
+      ]
+    },
+    "exclude_pos0": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8933,
+      "t1_std": 0.0037,
+      "t5_mean": 0.9688,
+      "floor": 0.0039,
+      "gap_vs_pctx": 0.4498,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8953,
+        0.8881,
+        0.8964
+      ]
+    },
+    "norm_plus_excl": {
+      "epochs": 2,
+      "n_train": 2000,
+      "t1_mean": 0.8486,
+      "t1_std": 0.005,
+      "t5_mean": 0.9429,
+      "floor": 0.0193,
+      "gap_vs_pctx": 0.4051,
+      "anchor_separated": true,
+      "per_seed_t1": [
+        0.8556,
+        0.8447,
+        0.8455
+      ]
+    }
+  },
+  "ladder": {
+    "per_dim_norm": {
+      "L2": {
+        "epochs": 6,
+        "n_train": 5000,
+        "t1_mean": 0.9564,
+        "t1_std": 0.0038,
+        "t5_mean": 0.9872,
+        "floor": 0.019,
+        "gap_vs_pctx": 0.5129,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.9593,
+          0.9587,
+          0.9511
+        ]
+      },
+      "L3": {
+        "epochs": 12,
+        "n_train": 5000,
+        "t1_mean": 0.962,
+        "t1_std": 0.0056,
+        "t5_mean": 0.986,
+        "floor": 0.019,
+        "gap_vs_pctx": 0.5184,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.9543,
+          0.9637,
+          0.9678
+        ]
+      }
+    },
+    "clip_z": {
+      "L2": {
+        "epochs": 6,
+        "n_train": 5000,
+        "t1_mean": 0.9623,
+        "t1_std": 0.0013,
+        "t5_mean": 0.9887,
+        "floor": 0.019,
+        "gap_vs_pctx": 0.5187,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.9633,
+          0.9629,
+          0.9605
+        ]
+      },
+      "L3": {
+        "epochs": 12,
+        "n_train": 5000,
+        "t1_mean": 0.9614,
+        "t1_std": 0.0033,
+        "t5_mean": 0.9865,
+        "floor": 0.019,
+        "gap_vs_pctx": 0.5179,
+        "anchor_separated": true,
+        "per_seed_t1": [
+          0.9567,
+          0.9632,
+          0.9642
+        ]
+      }
+    }
+  },
+  "verdict": "Stage A 5/5 分離（註冊預算）→ PASS；ladder 首過＝('per_dim_norm', 'L2', 0.5129)",
+  "done": true,
+  "minutes": 23.7
+}
